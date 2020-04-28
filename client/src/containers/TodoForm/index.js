@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+
+import RenderTodoList from '../../components/RenderTodoList';
+
 class TodoForm extends Component {
   state = {
     todos: [],
@@ -12,24 +15,6 @@ class TodoForm extends Component {
       this.setState({ todos: data });
     } catch (e) {
       console.log(e);
-    }
-  }
-  renderTodos = () => {
-    if (this.state.todos.length === 0) {
-      return <h1>No todos yet</h1>;
-    } else {
-      return (
-        <ul>
-          {
-            this.state.todos.map(todo => {
-              return <li
-                key={todo.id}
-                style={{ color: todo.completed ? 'blue' : 'red' }}
-              >{todo.text}</li>
-            })
-          }
-        </ul>
-      );
     }
   }
   handleInputChange = event => {
@@ -46,11 +31,12 @@ class TodoForm extends Component {
       console.log(e);
     }
   }
+
   render() {
     console.log("I rendered inside of Form");
     return (
       <div>
-        { this.renderTodos() }
+        <RenderTodoList items={this.state.todos}/>
         <form>
           <input
             name="todoInput"
