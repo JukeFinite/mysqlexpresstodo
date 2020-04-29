@@ -55,6 +55,7 @@ class TodoForm extends Component {
 
   render() {
     console.log("I rendered inside of Form");
+    console.log(this.props);
     return (
       <div>
         <RenderTodoList
@@ -72,7 +73,6 @@ class TodoForm extends Component {
       </div>
     );
   }
-
-
 }
+
 export default TodoForm;
