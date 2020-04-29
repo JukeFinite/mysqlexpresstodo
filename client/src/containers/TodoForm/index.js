@@ -35,11 +35,32 @@ class TodoForm extends Component {
     }
   }
 
+  handleDeleteTodo = async id => {
+    try {
+      const { data: todos } = await axios.delete(`/api/todos/${id}`);
+      this.setState({ todos });
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  handleUpdateCompletedTodo = async id => {
+    try {
+      const { data: todos } = await axios.patch(`/api/todos/${id}`);
+      this.setState({ todos });
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   render() {
     console.log("I rendered inside of Form");
     return (
-      <div>z
-        <RenderTodoList items={this.state.todos}/>
+      <div>
+        <RenderTodoList
+          items={this.state.todos}
+          handleUpdateCompletedTodo={this.handleUpdateCompletedTodo}
+          handleDelete={this.handleDeleteTodo}/>
         <form>
           <input
             name="todoInput"
@@ -51,5 +72,7 @@ class TodoForm extends Component {
       </div>
     );
   }
+
+
 }
 export default TodoForm;

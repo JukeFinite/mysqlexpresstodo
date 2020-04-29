@@ -12,7 +12,9 @@ const addTodo = 'INSERT INTO todos SET ?;';
 
 // Deleting todos
 const deleteTodoById = 'DELETE FROM todos WHERE id = ?;';
+
 // Updating todos
+const updateTodoCompletedById = 'UPDATE todos SET completed = ? WHERE id = ?;';
 const updateTodoTextById = 'UPDATE todos SET text = ? WHERE id = ?;';
 
 
@@ -25,4 +27,5 @@ module.exports = {
   addTodo,
   deleteTodoById,
   updateTodoTextById,
+  updateTodoCompletedById,
 };
