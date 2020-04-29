@@ -8,6 +8,8 @@ class TodoCard extends Component {
       id: ''
     }
   }
+
+
   render() {
     console.log(this.props);
     return (
