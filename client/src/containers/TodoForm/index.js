@@ -8,6 +8,7 @@ class TodoForm extends Component {
     todos: [],
     todoInput: ''
   }
+
   async componentDidMount() {
     console.log("Inside componentDidMount");
     try {
@@ -17,10 +18,12 @@ class TodoForm extends Component {
       console.log(e);
     }
   }
+
   handleInputChange = event => {
     const { value, name } = event.target;
     this.setState({ [name]: value });
   }
+
   handleSubmit = async event => {
     event.preventDefault();
     try {
@@ -35,7 +38,7 @@ class TodoForm extends Component {
   render() {
     console.log("I rendered inside of Form");
     return (
-      <div>
+      <div>z
         <RenderTodoList items={this.state.todos}/>
         <form>
           <input
